@@ -1,0 +1,50 @@
+{
+  "extends": "@react-native/typescript-config",
+
+  "compilerOptions": {
+    /* Base */
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "jsx": "react-jsx",
+
+    /* Paths & Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
+    /* Strictness (SAFE for RN) */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Interop & Module */
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* Performance */
+    "skipLibCheck": true,
+    "incremental": true,
+    "isolatedModules": true,
+
+    /* Types */
+    "types": ["jest", "react-native"]
+  },
+
+  "include": [
+    "src",
+    "App.tsx",
+    "index.tsx"
+  ],
+
+  "exclude": [
+    "**/node_modules",
+    "**/ios",
+    "**/android",
+    "**/Pods"
+  ]
+}

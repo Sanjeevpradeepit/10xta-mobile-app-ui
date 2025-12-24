@@ -1,0 +1,100 @@
+####################################
+# Node & Package Managers
+####################################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+####################################
+# Environment variables
+####################################
+.env
+.env.*
+!.env.example
+
+####################################
+# React Native
+####################################
+*.jsbundle
+*.hbc
+*.map
+.metro-health-check*
+
+####################################
+# Android
+####################################
+android/.gradle/
+android/local.properties
+android/.idea/
+android/*.iml
+android/build/
+android/app/build/
+android/app/release/
+android/app/debug/
+android/captures/
+
+# Native (C++ / NDK) — VERY IMPORTANT
+android/.cxx/
+android/app/.cxx/
+
+# Android signing keys
+*.keystore
+*.jks
+
+# Firebase
+android/app/google-services.json
+
+####################################
+# iOS
+####################################
+ios/Pods/
+ios/build/
+ios/DerivedData/
+ios/*.xcworkspace
+ios/*.xcuserdata
+ios/*.xcodeproj/*.xcuserdata
+ios/.idea
+ios/.DS_Store
+
+# iOS signing & provisioning
+ios/*.mobileprovision
+ios/*.p12
+
+# Firebase
+ios/GoogleService-Info.plist
+
+####################################
+# macOS / Windows junk
+####################################
+.DS_Store
+Thumbs.db
+*.swp
+
+####################################
+# VS Code / IDE
+####################################
+.vscode/
+.idea/
+*.log
+
+####################################
+# Testing
+####################################
+coverage/
+jest-cache/
+
+####################################
+# Expo leftovers (if project was ever Expo)
+####################################
+.expo/
+.expo-shared/
+web-build/
+
+####################################
+# Temporary
+####################################
+tmp/
+temp/
