@@ -84,8 +84,7 @@ const JobsListScreen: React.FC<Props> = ({navigation}) => {
           keyboardAvoid
           scroll
           listMode
-          
-          header={<CustomHeader onPressBack={onPressBack} title="Job Details" />}
+          header={<CustomHeader onPressBack={onPressBack} title="Jobs List" />}
         >
       <FlatList
         data={JOBS}

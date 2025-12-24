@@ -5,7 +5,7 @@ export const createStyles = (theme: Theme) =>
   StyleSheet.create({
     root: {
       flex: 1,
-      backgroundColor: theme.background,
+      // backgroundColor: theme.background,
     },
 
     headerWrapper: {

@@ -1,7 +1,20 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Job } from '../../components/jobCard';
+
+import { JOB_TABS, JobTab } from '../jobTabs';
+import { JOB_META } from '@/modules/jobs/data/job.meta';
+import { TAB_COMPONENTS } from '../../components/tabRegistry/tabRegistry';
+import { useThemedStyles } from '@/shared/theme';
+import { createStyles } from './styles';
+import Screen from '@/shared/components/screen/Screen';
+import CustomHeader from '@/shared/components/customHeader';
 
 type JobsStackParamList = {
   JobsList: undefined;
@@ -10,43 +23,58 @@ type JobsStackParamList = {
 
 type Props = NativeStackScreenProps<JobsStackParamList, 'JobDetails'>;
 
-const JOBS_MAP: Record<string, Job> = {
-  '1': {
-    id: '1',
-    code: 'JD103',
-    title: 'iOS Manager',
-    company: 'Symphony',
-    location: 'Albion, CA, USA',
-    statusColor: '#FF8800',
-    submissions: 0,
-    pipeline: 0,
-  },
-};
+export default function JobDetailsScreen({ route ,navigation}: Props) {
+  const { jobId } = route.params;
+   const styles = useThemedStyles(createStyles); // ✅ ONE line
+  const [tab, setTab] = useState<JobTab>(JOB_TABS.CANDIDATES);
 
-const JobDetailsScreen: React.FC<Props> = ({ route }) => {
-  const job = JOBS_MAP[route.params.jobId];
-
-  if (!job) {
-    return (
-      <View style={styles.center}>
-        <Text>Job not found</Text>
-      </View>
-    );
-  }
-
+  const ActiveTab = TAB_COMPONENTS[tab];
+ const onPressBack = () => navigation.goBack();
   return (
+    <Screen
+              keyboardAvoid
+              scroll
+              listMode
+              
+              header={<CustomHeader onPressBack={onPressBack} title="Job Details" />}
+            >
     <View style={styles.container}>
-      <Text style={styles.title}>{job.title}</Text>
-      <Text>{job.company}</Text>
-      <Text>{job.location}</Text>
+      {/* Header */}
+      {/* <Text style={styles.title}>{JOB_META.title}</Text> */}
+
+      {/* Tabs */}
+      <View style={styles.tabBar}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.tabContent}
+        >
+          {Object.values(JOB_TABS).map(tabKey => (
+            <TouchableOpacity
+              key={tabKey}
+              onPress={() => setTab(tabKey)}
+              style={styles.tabButton}
+            >
+              <Text
+                style={[
+                  styles.tabText,
+                  tab === tabKey && styles.activeTabText,
+                ]}
+              >
+                {tabKey}
+              </Text>
+
+              {tab === tabKey && <View style={styles.indicator} />}
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
+
+      {/* Content */}
+      <View style={styles.content}>
+        {ActiveTab && <ActiveTab jobId={jobId} />}
+      </View>
     </View>
+    </Screen>
   );
-};
-
-const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16 },
-  center: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  title: { fontSize: 20, fontWeight: '700', marginBottom: 8 },
-});
-
-export default JobDetailsScreen;
+}
