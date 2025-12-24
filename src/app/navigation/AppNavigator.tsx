@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../screens/home';
 import JobsStack from './JobsStack';
 import BottomTabBar from '@/shared/components/bottomTabBar';
+import ApplicationsStack from './ApplicationsStack';
+import ProfileScreen from '@/modules/profile/ui/profileScreen';
 
 export type AppStackParamList = {
   Home: undefined;
@@ -37,7 +39,7 @@ export default function AppNavigator() {
       <Stack.Screen name="Applications">
         {() => (
           <View style={{ flex: 1 }}>
-            <Home />
+            <ApplicationsStack />
             <BottomTabBar />
           </View>
         )}
@@ -46,8 +48,8 @@ export default function AppNavigator() {
       <Stack.Screen name="Profile">
         {() => (
           <View style={{ flex: 1 }}>
-            <Home />
-            <BottomTabBar />
+            <ProfileScreen />
+            {/* <BottomTabBar /> */}
           </View>
         )}
       </Stack.Screen>

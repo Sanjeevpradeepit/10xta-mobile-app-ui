@@ -76,4 +76,24 @@ export const createStyles = (theme: Theme) =>
     fontWeight: '700',
     fontSize: 16,
   },
+  passwordContainer: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  position: 'relative',
+},
+passwordInput: {
+  flex: 1,
+  paddingRight: 40,
+},
+eyeIcon: {
+  position: 'absolute',
+  right: 12,
+  padding: 6,
+},
+eyeText: {
+  fontSize: 18,
+},
+  error:{
+    color: '#ff3a3a55'
+  }
   });

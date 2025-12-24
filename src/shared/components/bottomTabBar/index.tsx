@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, TouchableOpacity, Animated } from 'react-native';
 import { useNavigation, useNavigationState } from '@react-navigation/native';
-import { Home, Briefcase, CheckCircle, Calendar } from 'lucide-react-native';
+import { Home, Briefcase, CheckCircle, MessageCircleMore, } from 'lucide-react-native';
 import { createStyles } from './styles';
 import { useThemedStyles } from '@/shared/theme';
 
@@ -45,7 +45,7 @@ export default function BottomTabBar() {
             <Tab icon={Home} label="Home" active={activeTab === 'Home'} onPress={() => navigation.navigate('Home')} />
             <Tab icon={Briefcase} label="Jobs" active={activeTab === 'JobsTab'} onPress={() => navigation.navigate('JobsTab')} />
             <Tab icon={CheckCircle} label="Applications" active={activeTab === 'Applications'} onPress={() => navigation.navigate('Applications')} />
-            <Tab icon={Calendar} label="Profile" active={activeTab === 'Profile'} onPress={() => navigation.navigate('Profile')} />
+            <Tab icon={MessageCircleMore} label="Chat" active={activeTab === 'Chat'} onPress={() => console.log("")} />
           </View>
 
           <View style={styles.indicatorContainer}>
