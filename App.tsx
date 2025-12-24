@@ -48,3 +48,11 @@ function App() {
 }
 
 export default App;
+
+
+
+
+  // const logout = useAuthStore(s => s.logout);
+          // <Button title="Logout" onPress={logout} />
+
+//  <ThemeSwitcher />

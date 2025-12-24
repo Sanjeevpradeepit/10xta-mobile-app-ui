@@ -3,7 +3,7 @@ export const light = {
   background: '#FFFFFF',
   surface: '#F8F9FA',
 
-  textPrimary: '#111111',
+  textPrimary: '#FFFFFF',
   textSecondary: '#6B7280',
 
   primary: '#0a0e27',

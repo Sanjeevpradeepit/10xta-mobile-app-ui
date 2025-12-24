@@ -1,17 +1,10 @@
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import RootStack from './RootStack';
 
-import AuthNavigator from './AuthNavigator';
-import AppNavigator from './AppNavigator';
-import { useAuthStore } from '../store/auth.store';
-
-export default function RootNavigator() {
-  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
-  // const isAuthenticated = true;
-
+export default function App() {
   return (
     <NavigationContainer>
-      {isAuthenticated ? <AppNavigator /> : <AuthNavigator />}
+      <RootStack />
     </NavigationContainer>
   );
 }
