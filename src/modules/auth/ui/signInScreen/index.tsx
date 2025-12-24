@@ -6,17 +6,31 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
+import { createStyles } from './styles';
+import { useThemedStyles } from '@/shared/theme';
+import Screen from '@/shared/components/screen/Screen';
+import CustomHeader from '@/shared/components/customHeader';
  
 export default function SignInScreen({ navigation }: any) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState(false);
- 
+  const styles = useThemedStyles(createStyles);
+
+
+
+    const onPressBack = () => navigation.goBack();
   return (
+    <Screen
+              keyboardAvoid
+              scroll
+              listMode
+              header={<CustomHeader  title="Log In" />}
+            > 
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerText}>Sign in</Text>
-        <Text style={styles.logo}>Ceipal ATS</Text>
+        {/* <Text style={styles.headerText}>Sign in</Text> */}
+        <Text style={styles.logo}>10xTA</Text>
       </View>
  
       {/* Card */}
@@ -64,81 +78,7 @@ export default function SignInScreen({ navigation }: any) {
         </TouchableOpacity>
       </View>
     </View>
+    </Screen>
   );
 }
  
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#0B4CCB',
-  },
-  header: {
-    paddingTop: 60,
-    paddingHorizontal: 20,
-  },
-  headerText: {
-    color: '#fff',
-    fontSize: 18,
-  },
-  logo: {
-    textAlign: 'center',
-    color: '#fff',
-    fontSize: 26,
-    fontWeight: '700',
-    marginVertical: 20,
-  },
-  card: {
-    flex: 1,
-    backgroundColor: '#fff',
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    padding: 24,
-  },
-  welcome: {
-    fontSize: 26,
-    fontWeight: '700',
-    textAlign: 'center',
-  },
-  subText: {
-    textAlign: 'center',
-    color: '#777',
-    marginBottom: 24,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 12,
-    padding: 14,
-    marginBottom: 14,
-  },
-  termsRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 10,
-  },
-  check: {
-    marginRight: 6,
-    color: 'green',
-  },
-  terms: {
-    color: '#555',
-  },
-  link: {
-    color: '#0B4CCB',
-  },
-  forgot: {
-    alignItems: 'flex-end',
-    marginBottom: 20,
-  },
-  signInBtn: {
-    backgroundColor: '#0B4CCB',
-    padding: 16,
-    borderRadius: 14,
-  },
-  signInText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: '700',
-    fontSize: 16,
-  },
-});

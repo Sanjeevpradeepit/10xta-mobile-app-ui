@@ -6,7 +6,7 @@ export const light = {
   textPrimary: '#111111',
   textSecondary: '#6B7280',
 
-  primary: '#2563EB',
+  primary: '#0a0e27',
   primaryText: '#FFFFFF',
 
   error: '#D32F2F',
@@ -22,7 +22,7 @@ export const dark = {
   textPrimary: '#F8FAFC',
   textSecondary: '#94A3B8',
 
-  primary: '#3B82F6',
+  primary: '#0a0e27',
   primaryText: '#FFFFFF',
 
   error: '#EF4444',

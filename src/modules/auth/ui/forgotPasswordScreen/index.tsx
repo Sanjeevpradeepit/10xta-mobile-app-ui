@@ -1,13 +1,16 @@
 // src/screens/ForgotPasswordScreen.tsx
-import CustomHeader from '@/shared/components/customHeader';
-import Screen from '@/shared/components/screen/Screen';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
- 
+ import CustomHeader from '@/shared/components/customHeader';
+import Screen from '@/shared/components/screen/Screen';
+import { useThemedStyles } from '@/shared/theme';
+import { createStyles } from './styles';
+
 export default function ForgotPasswordScreen({navigation}:any) {
   const [email, setEmail] = useState('');
-
+  const styles = useThemedStyles(createStyles);
   const onPressBack = () => navigation.goBack();
+  
  
   return (
      <Screen
@@ -17,7 +20,7 @@ export default function ForgotPasswordScreen({navigation}:any) {
           header={<CustomHeader onPressBack={onPressBack} title="Forgot Password" />}
         > <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.logo}>Ceipal ATS</Text>
+        <Text style={styles.logo}>10xTA</Text>
       </View>
  
       <View style={styles.card}>
@@ -43,37 +46,5 @@ export default function ForgotPasswordScreen({navigation}:any) {
   );
 }
  
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#0B4CCB' },
-  header: { marginTop: 70, alignItems: 'center' },
-  logo: { color: '#fff', fontSize: 28, fontWeight: '700' },
-  card: {
-    marginTop: 40,
-    backgroundColor: '#fff',
-    flex: 1,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    padding: 24,
-  },
-  title: { fontSize: 24, fontWeight: '700', marginBottom: 10 },
-  subtitle: { color: '#777', marginBottom: 24 },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 10,
-    padding: 14,
-    marginBottom: 20,
-  },
-  submitBtn: {
-    backgroundColor: '#0B4CCB',
-    padding: 16,
-    borderRadius: 10,
-  },
-  submitText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: '700',
-    fontSize: 16,
-  },
-});
+
  

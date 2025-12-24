@@ -17,7 +17,7 @@ import { Icon } from '../Icon/Icon';
 type Props = {
   title?: string;
   onClose?: () => void;
-  onPressBack: () => void;
+  onPressBack?: () => void;
   right?: React.ReactNode;
   handleBack?: () => void;
   containerStyle?: StyleProp<ViewStyle>;
@@ -62,14 +62,14 @@ export default function CustomHeader({
     <View style={[styles.wrapper, containerStyle]}>
       <View style={styles.row}>
         {/* Left / Back */}
-        <TouchableOpacity
+        {onPressBack && <TouchableOpacity
           onPress={onPressBack}
           style={styles.left}
           activeOpacity={0.7}
         >
        <Icon icon={ChevronLeft} />
 
-        </TouchableOpacity>
+        </TouchableOpacity>}
 
         {/* Title */}
         <View style={styles.titleWrap}>

@@ -5,7 +5,8 @@ import { spacing, typography } from '@/shared/theme';
 export const createStyles = (theme: Theme) =>
   StyleSheet.create({
     wrapper: {
-      backgroundColor: theme.surface,
+      // backgroundColor: theme.surface,
+      backgroundColor: theme.primary,
       borderBottomWidth: 1,
       borderBottomColor: theme.border,
     },
